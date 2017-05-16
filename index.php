@@ -1,3 +1,5 @@
+<?php include_once "controller/checkAuth.php"; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 <body>
 	<div class="row main align-middle">
 		<div class="small-10 medium-5 large-4 small-centered medium-centered large-centered columns">
-			<form class="log-in-form">
+			<form class="login-form">
 				<h4 class="text-center">LOGIN</h4>
 				<label>
 					Email
@@ -30,3 +32,4 @@
 	</div>
 </body>
 </html>
+
