@@ -91,20 +91,59 @@
 		    //SUBSTITUI O VALOR NO CAMPO DA QUERY
 		    $query->bindValue(':user', $login_user, PDO::PARAM_STR);
 		    $query->bindValue(':pass', sha1(md5($login_pass)), PDO::PARAM_STR);
-		         
+
 		    //EXECUTA A QUERY
 		    $query->execute();
 
-		    if ($query->fetchColumn() > 0) {
-		    	header('location: ../painel.php');
+		    if ($query->rowCount() > 0) {
+		    	$bd_user = $query->fetchAll();
+					$_SESSION['user'] = $bd_user;
+
+		    	header('location: ../index.php');
+
 		    }else{
-		    	header('location: ../idnex.php?error=login_error');
+		    	header('location: ../index.php?info=login_error');
+		    }
+
+		  }catch(PDOException $e){
+		  	echo $e->getMessage();
+		  }
+		}
+
+		public function logout(){
+			session_start();
+			
+			session_destroy();
+
+			header('location: ../index.php?info=logout');
+			exit;
+		}
+
+		public function selectClients(){
+			//CÓDIGO SQL PARA BUSCAR USUÁRIOS NO BANCO
+		  $sql = 'SELECT * FROM `clients`';
+
+		  try{
+
+		  	$mysql = new Mysql;
+
+		    //PREPARA A O CÓDIGO SQL
+		    $query = $mysql->getMysql()->prepare($sql);
+
+		    //EXECUTA A QUERY
+		    $query->execute();
+
+		    if ($query->rowCount() > 0) {
+		    	$result = $query->fetchAll();
+		    }else{
+		    	$result = "Não há nenhum cliente cadastrado.";
 		    }
 
 		  }catch(PDOException $e){
 		  	echo $e->getMessage();
 		  }
 
+		  return $result;
 		}
 	}
 

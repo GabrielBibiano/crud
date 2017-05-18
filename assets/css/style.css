@@ -3,9 +3,95 @@
 	padding: 0;
 }
 
+h2{
+	background: rgb(68, 151, 206);
+    color: white;
+    margin-bottom: 0px;
+}
+
+h3{
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
 .main{
 }
 
-form{
+.login_error{
+	background: red;
+	text-align: center;
+	width: 17em;
+	padding: 20px 20px;
+	color: white;
+	margin: 0 auto;
+}
+
+.panel{
+	background: #ddd;
+	padding: 30px;
+	margin: 10px;
 	margin-top: 10em;
+	height: 24em;
+}
+
+.side-nav{
+	position: absolute;
+    background: #ecedf3;
+    list-style: none;
+    overflow: hidden;
+    width: 14em;
+    margin-left: 0;
+    color: black;
+    bottom: 0;
+    margin-bottom: 0px;
+    top: 0;
+}
+
+.side-nav a{
+	color: #353535;
+	text-decoration: none;
+}
+
+.container-painel{
+	padding-top: 3em;
+    padding-left: 15em;
+}
+
+.container-painel .panel{
+	margin-top: 7px;
+	height: 20em;
+}
+
+.btn-large{
+	float: right;
+    width: 100%;
+    margin-top: 10px;
+    background: #ce4c2e;
+}
+
+.user-line{
+	background: #1779ba;
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+}
+
+.user-line a{
+    color: white;
+}
+
+.sair{
+	padding: 16px 45px;
+    background: #f54a4a;
+}
+
+.sair a{
+    color: white;
+}
+
+.row{
+	max-width: 92rem;
+    margin-right: auto;
+    margin-left: auto;
 }

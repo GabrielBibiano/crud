@@ -1,5 +1,10 @@
-<?php include_once "controller/auth.php"; ?>
-<?php include_once "model/urls.php"; ?>
+<?php include_once "model/config.php"; ?>
+
+<?php if (isset($_GET['info'])): $info = $_GET['info']; ?>
+	<div class="<?php echo $info; ?>">
+		<?php echo $all_info[$info];?>
+	</div>
+<?php endif; ?>
 
 <!DOCTYPE html>
 <html>
@@ -9,26 +14,16 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-	<div class="row main align-middle">
-		<div class="small-10 medium-5 large-4 small-centered medium-centered large-centered columns">
-			<form class="login-form" action="controller/createUser.php" method="POST">
-				<h4 class="text-center">Cadastrar</h4>
-				<label>
-					Usuário
-				  <input type="text" name="user" placeholder="ex: gabrielbibiano">
-				</label>
-				<label>
-					Email
-				  <input type="email"  name="email" placeholder="gabrielbibiano@example.com">
-				</label>
-				<label>
-					Senha
-				  <input type="password"  name="pass" placeholder="minha@1245senha">
-				</label>
-				<input type="submit" class="button expanded" value="Cadastrar">
-			</form>
-	  </div>
-	</div>
+	<?php  
+		session_start();
+		$user = $_SESSION['user'];
+
+		if (isset($user)):
+			include_once "view/panel.php";
+		else:
+			include_once "view/home.php";
+		endif;
+	?>
 </body>
 </html>
 
