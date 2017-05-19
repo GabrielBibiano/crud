@@ -1,6 +1,5 @@
 <?php  
 	class Mysql{
-		public $a;
 		
 		function __construct(){
 			try {

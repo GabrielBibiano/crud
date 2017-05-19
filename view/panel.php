@@ -2,7 +2,7 @@
 	<h2 class="text-center">Painel</h2>
 	<ul class="side-nav">
 		<li class="user-line">
-	  	<a>Olá, <?php echo $user[0]['user']; ?></a>
+	  	<a>Olá, <?php echo $user['user']; ?></a>
 	  </li>
 	  <li class="sair">
 	  	<a href="controller/logout.php">Sair</a>

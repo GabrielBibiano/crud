@@ -1,4 +1,4 @@
-<?php include_once "model/config.php"; ?>
+<?php include_once "model/config.php";  ?>
 
 <?php if (isset($_GET['info'])): $info = $_GET['info']; ?>
 	<div class="<?php echo $info; ?>">
